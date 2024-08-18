@@ -29,7 +29,7 @@
                 <a href="#" class="bg-green-600 text-white py-3 px-6 rounded-lg font-semibold">Member?</a>
             </div>
             <div class="lg:w-1/2 mt-10 lg:mt-0">
-                <img src="/photos/intro.PNG" alt="Family Planning" class="rounded-lg shadow-lg">
+                <img src="/photos/intro.png" alt="Family Planning" class="rounded-lg shadow-lg">
             </div>
         </div>
     </section>
@@ -40,17 +40,17 @@
             <h2 class="text-3xl font-bold text-center mb-10">Natural Methods 🌱</h2>
             <div class="flex flex-col lg:flex-row justify-between">
                 <div class="lg:w-1/3 text-center mb-8 lg:mb-0">
-                    <img src="/photos/mama.PNG" alt="Natural Methods" class="mx-auto mb-4">
+                    <img src="/photos/mama.png" alt="Natural Methods" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">MAMA</h3>
                     <p>Monitoring fertility through natural signs such as temperature and cervical mucus.</p>
                 </div>
                 <div class="lg:w-1/3 text-center mb-8 lg:mb-0">
-                    <img src="/photos/Fertility-Awareness.PNG" alt="Fertility Awareness" class="mx-auto mb-4">
+                    <img src="/photos/Fertility-Awareness.png" alt="Fertility Awareness" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">Fertility Awareness</h3>
                     <p>Understanding your cycle with methods like calendar tracking and sympto-thermal observations.</p>
                 </div>
                 <div class="lg:w-1/3 text-center">
-                    <img src="/photos/fixed.PNG" alt="Fixed-Day Method" class="mx-auto mb-4">
+                    <img src="/photos/fixed.png" alt="Fixed-Day Method" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">Fixed-Day Method</h3>
                     <p>Track specific days in your cycle to avoid pregnancy naturally.</p>
                 </div>
@@ -64,17 +64,17 @@
             <h2 class="text-3xl font-bold text-center mb-10">Hormonal Methods 💊</h2>
             <div class="flex flex-col lg:flex-row justify-between">
                 <div class="lg:w-1/3 text-center mb-8 lg:mb-0">
-                    <img src="/photos/pills.PNG" alt="Pills" class="mx-auto mb-4">
+                    <img src="/photos/pills.png" alt="Pills" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">Oral Pills</h3>
                     <p>Commonly used hormonal contraceptives taken daily to prevent pregnancy.</p>
                 </div>
                 <div class="lg:w-1/3 text-center mb-8 lg:mb-0">
-                    <img src="/photos/injectables.PNG" alt="Injectables" class="mx-auto mb-4">
+                    <img src="/photos/injectables.png" alt="Injectables" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">Injectables</h3>
                     <p>Receive contraceptive hormones through injections every few months.</p>
                 </div>
                 <div class="lg:w-1/3 text-center">
-                    <img src="/photos/Implants.PNG" alt="Implants" class="mx-auto mb-4">
+                    <img src="/photos/Implants.png" alt="Implants" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">Implants</h3>
                     <p>Subcutaneous implants like Jadelle or Implanon that release hormones to prevent pregnancy.</p>
                 </div>
@@ -88,17 +88,17 @@
             <h2 class="text-3xl font-bold text-center mb-10">Barrier Methods 🚫</h2>
             <div class="flex flex-col lg:flex-row justify-between">
                 <div class="lg:w-1/3 text-center mb-8 lg:mb-0">
-                    <img src="/photos/Condoms.PNG" alt="Condoms" class="mx-auto mb-4">
+                    <img src="/photos/Condoms.png" alt="Condoms" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">Condoms</h3>
                     <p>Effective mechanical barriers for both men and women to prevent pregnancy and STIs.</p>
                 </div>
                 <div class="lg:w-1/3 text-center mb-8 lg:mb-0">
-                    <img src="/photos/Diaphragm.PNG" alt="Diaphragm" class="mx-auto mb-4">
+                    <img src="/photos/Diaphragm.png" alt="Diaphragm" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">Diaphragm & Cervical Cap</h3>
                     <p>Reusable devices that cover the cervix to block sperm from entering the uterus.</p>
                 </div>
                 <div class="lg:w-1/3 text-center">
-                    <img src="/photos/Spermicides.PNG" alt="Spermicides" class="mx-auto mb-4">
+                    <img src="/photos/Spermicides.png" alt="Spermicides" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">Spermicides</h3>
                     <p>Chemical agents that kill sperm, used alone or with other barrier methods.</p>
                 </div>
@@ -112,12 +112,12 @@
             <h2 class="text-3xl font-bold text-center mb-10">Intrauterine Devices (IUDs) & Sterilization 🩺</h2>
             <div class="flex flex-col lg:flex-row justify-between">
                 <div class="lg:w-1/2 text-center mb-8 lg:mb-0">
-                    <img src="/photos/IUDs.PNG" alt="IUD" class="mx-auto mb-4">
+                    <img src="/photos/IUDs.png" alt="IUD" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">IUDs</h3>
                     <p>Long-term, reversible contraception inserted into the uterus to prevent pregnancy.</p>
                 </div>
                 <div class="lg:w-1/2 text-center">
-                    <img src="/photos/Sterilization.PNG" alt="Sterilization" class="mx-auto mb-4">
+                    <img src="/photos/Sterilization.png" alt="Sterilization" class="mx-auto mb-4">
                     <h3 class="text-xl font-bold mb-2">Sterilization</h3>
                     <p>Permanent contraceptive methods, including tubal ligation for women and vasectomy for men.</p>
                 </div>

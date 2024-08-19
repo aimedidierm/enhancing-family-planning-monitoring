@@ -26,7 +26,7 @@
                     and preferences. Whether you're looking for natural methods, hormonal solutions, or permanent
                     options, we have detailed information to guide you.</p>
                 <a href="#methods" class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold">Learn More</a>
-                <a href="#" class="bg-green-600 text-white py-3 px-6 rounded-lg font-semibold">Member?</a>
+                <a href="/login" class="bg-green-600 text-white py-3 px-6 rounded-lg font-semibold">Member?</a>
             </div>
             <div class="lg:w-1/2 mt-10 lg:mt-0">
                 <img src="/photos/intro.png" alt="Family Planning" class="rounded-lg shadow-lg">

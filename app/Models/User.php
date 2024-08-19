@@ -44,4 +44,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function contraceptive()
+    {
+        return $this->hasMany(Contraceptive::class);
+    }
+
+    public function notification()
+    {
+        return $this->hasMany(Notification::class);
+    }
 }

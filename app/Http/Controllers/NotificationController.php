@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NotificationRequest;
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
 {
@@ -12,54 +14,32 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        return view('announcements');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $notifications = Notification::all();
+        return view('announcements', compact('notifications'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(NotificationRequest $request)
     {
-        //
-    }
+        Notification::create([
+            "title" => $request->input('title'),
+            "message" => $request->input('message'),
+            "method" => $request->input('method'),
+            "user_id" => Auth::id(),
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Notification $notification)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Notification $notification)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Notification $notification)
-    {
-        //
+        return redirect('/admin/announcements')->with('success', 'Announcements created successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Notification $notification)
+    public function destroy(string $id)
     {
-        //
+        $notification = Notification::findOrFail($id);
+        $notification->delete();
+        return redirect('/admin/announcements')->with('success', 'Announcement deleted successfully.');
     }
 }

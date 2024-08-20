@@ -19,9 +19,9 @@ Route::get('/auth/logout', [AuthController::class, 'logout']);
 
 Route::group(["prefix" => "admin", "middleware" => "auth", "as" => "admin."], function () {
     Route::get('/', [DashboardController::class, 'analytics']);
-    Route::resource('/admins', AdminController::class)->only('index');
-    Route::resource('/patients', PatientController::class)->only('index');
-    Route::resource('/announcements', NotificationController::class)->only('index');
-    Route::resource('/contraceptive', ContraceptiveController::class)->only('index');
+    Route::resource('/admins', AdminController::class)->only('index', 'store', 'destroy');
+    Route::resource('/patients', PatientController::class)->only('index', 'store', 'update', 'destroy');
+    Route::resource('/announcements', NotificationController::class)->only('index', 'store', 'destroy');
+    Route::resource('/contraceptive', ContraceptiveController::class)->only('index', 'store', 'destroy');
     Route::view('/settings', 'settings');
 });

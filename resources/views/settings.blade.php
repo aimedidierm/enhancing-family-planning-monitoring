@@ -15,7 +15,8 @@
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-                    <input type="email" id="email" class="w-full p-3 bg-gray-200 rounded-lg" placeholder="Your Email">
+                    <input type="email" id="email" value="{{Auth::user()->email}}"
+                        class="w-full p-3 bg-gray-200 rounded-lg" placeholder="Your Email" disabled>
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block text-gray-700 font-semibold mb-2">Password</label>

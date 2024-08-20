@@ -7,6 +7,36 @@
         <h2 class="text-3xl font-bold mb-6">Manage Announcements</h2>
         <button onclick="toggleModal(true)" class="bg-blue-700 text-white py-2 px-6 rounded-lg">Create</button>
         <div class="overflow-x-auto bg-white rounded-lg shadow-lg p-6 mt-6">
+            @if($errors->any())
+            <span style="color: red;">{{$errors->first()}}</span>
+            <br>
+            <br>
+            @endif
+            @if (session('success'))
+            <div id="alert-3"
+                class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+                role="alert">
+                <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Info</span>
+                <div class="ms-3 text-sm font-medium">
+                    {{ session('success') }}
+                </div>
+                <button type="button"
+                    class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700"
+                    data-dismiss-target="#alert-3" aria-label="Close">
+                    <span class="sr-only">Close</span>
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                </button>
+            </div>
+            @endif
             <table class="min-w-full bg-white">
                 <thead>
                     <tr>
@@ -17,17 +47,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if ($notifications->isEmpty())
+                    <tr>
+                        <td class="py-2 px-4">No announcements</td>
+                    </tr>
+                    @else
+                    @foreach ($notifications as $notification)
                     <tr class="border-b">
-                        <td class="py-2 px-4">Welcoming</td>
-                        <td class="py-2 px-4">All</td>
-                        <td class="py-2 px-4">Thank you for choosing contraception! Your decision supports your health
-                            and well-being, and we’re here to provide
-                            support and answer any questions you may have.</td>
+                        <td class="py-2 px-4">{{$notification->title}}</td>
+                        <td class="py-2 px-4">{{$notification->method}}</td>
+                        <td class="py-2 px-4">{{$notification->message}}</td>
                         <td class="py-2 px-4">
-                            <button class="bg-red-500 text-white py-1 px-3 rounded-lg">Delete</button>
+                            <form action="{{ route('admin.announcements.destroy', $notification->id) }}" method="POST"
+                                onsubmit="return confirm('Are you sure you want to delete this notification?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 text-white py-1 px-3 rounded-lg">Delete</button>
+                            </form>
                         </td>
                     </tr>
-                    <!-- More rows here -->
+                    @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -41,10 +81,11 @@
         <h3 class="text-2xl font-semibold mb-4">
             <h3 class="text-xl font-semibold mb-4">Create New Announcement</h3>
         </h3>
-        <form>
+        <form method="POST" action="/admin/announcements">
+            @csrf
             <div class="mb-4">
                 <label for="method" class="block text-gray-700 font-semibold mb-2">Contraceptives Method</label>
-                <select name="method" id="method" class="w-full p-3 bg-gray-200 rounded-lg">
+                <select name="method" id="method" name="method" class="w-full p-3 bg-gray-200 rounded-lg">
                     <option value="All">All</option>
                     <option value="OralPills">Oral Pills</option>
                     <option value="Injectables">Injectables</option>
@@ -54,12 +95,12 @@
             </div>
             <div class="mb-4">
                 <label for="title" class="block text-gray-700 font-semibold mb-2">Title</label>
-                <input type="text" id="title" class="w-full p-3 bg-gray-200 rounded-lg"
+                <input type="text" id="title" name="title" class="w-full p-3 bg-gray-200 rounded-lg"
                     placeholder="Announcement Title">
             </div>
             <div class="mb-4">
                 <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                <textarea id="message" class="w-full p-3 bg-gray-200 rounded-lg" rows="4"
+                <textarea id="message" name="message" class="w-full p-3 bg-gray-200 rounded-lg" rows="4"
                     placeholder="Announcement Message"></textarea>
             </div>
             <button type="submit" class="bg-blue-700 text-white py-2 px-6 rounded-lg">Submit</button>

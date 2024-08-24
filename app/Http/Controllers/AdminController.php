@@ -36,8 +36,13 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        $admin = User::findOrFail($id);
-        $admin->delete();
-        return redirect('/admin/admins')->with('success', 'Admin deleted successfully.');
+        $admins = User::count();
+        if ($admins > 1) {
+            $admin = User::findOrFail($id);
+            $admin->delete();
+            return redirect('/admin/admins')->with('success', 'Admin deleted successfully.');
+        } else {
+            return redirect('/admin/admins')->withErrors("Default Admin can't be deleted");
+        }
     }
 }

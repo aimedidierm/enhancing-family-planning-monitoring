@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Aimedidierm\FdiSms\SendSms;
 use App\Http\Requests\NotificationRequest;
+use App\Models\Contraceptive;
 use App\Models\Notification;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class NotificationController extends Controller
 {
@@ -30,7 +32,37 @@ class NotificationController extends Controller
             "user_id" => Auth::id(),
         ]);
 
-        return redirect('/admin/announcements')->with('success', 'Announcements created successfully.');
+        if ($request->input('method') == 'All') {
+            $contraceptives = Contraceptive::all();
+        } else {
+            $contraceptives = Contraceptive::where('method', $request->input('method'))->get();
+        }
+
+        if ($contraceptives->isNotEmpty()) {
+            foreach ($contraceptives as $contraceptive) {
+                $patientName = $contraceptive->patient->name;
+                $announce = $request->input('message');
+
+                $to = $contraceptive->patient->phone;
+                $message = "Hello $patientName, $announce";
+                $senderId = "FDI";
+                $ref = Str::random(30);
+                $callbackUrl = "";
+
+                try {
+                    $apiUsername = env('SMS_USERNAME');
+                    $apiPassword = env('SMS_PASSWORD');
+                    $smsSender = new SendSms($apiUsername, $apiPassword);
+
+                    $smsSender->sendSms($to, $message, $senderId, $ref, $callbackUrl);
+                } catch (\Exception $e) {
+                    return response()->json(['message' => $e->getMessage()], 500);
+                }
+            }
+            return redirect('/admin/announcements')->with('success', 'Announcements created successfully.');
+        } else {
+            return redirect('/admin/announcements')->with('success', 'Announcements created successfully. but no patients found to get SMS');
+        }
     }
 
     /**

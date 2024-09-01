@@ -35,6 +35,7 @@ class ContraceptiveController extends Controller
         Contraceptive::create([
             "method" => $request->input('method'),
             "due_date" => $request->input('due'),
+            "reminder_date" => $request->input('reminder_datetime'),
             "patient_id" => $request->input('patient'),
             "user_id" => Auth::id(),
         ]);

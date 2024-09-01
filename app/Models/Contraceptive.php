@@ -17,6 +17,7 @@ class Contraceptive extends Model
     protected $fillable = [
         'method',
         'due_date',
+        'reminder_date',
         'patient_id',
         'user_id',
     ];

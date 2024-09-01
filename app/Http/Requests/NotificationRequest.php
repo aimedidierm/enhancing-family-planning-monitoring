@@ -24,8 +24,14 @@ class NotificationRequest extends FormRequest
      */
     public function rules(): array
     {
+        $customArray = ['All'];
+
+        $contraceptiveMethods = array_values((new ReflectionClass(ContraceptiveMethod::class))->getConstants());
+
+        $combinedMethods = array_merge($contraceptiveMethods, $customArray);
+
         return [
-            "method" => ["required", "string", Rule::in(array_values((new ReflectionClass(ContraceptiveMethod::class))->getConstants()))],
+            "method" => ["required", "string", Rule::in($combinedMethods)],
             "title" => "required|string",
             "message" => "required|string",
         ];

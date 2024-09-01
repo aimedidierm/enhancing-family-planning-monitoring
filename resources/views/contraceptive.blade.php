@@ -44,6 +44,7 @@
                         <th class="py-2 px-4 bg-blue-700 text-white">Patient</th>
                         <th class="py-2 px-4 bg-blue-700 text-white">Method</th>
                         <th class="py-2 px-4 bg-blue-700 text-white">Due Date</th>
+                        <th class="py-2 px-4 bg-blue-700 text-white">Reminder Time</th>
                         <th class="py-2 px-4 bg-blue-700 text-white">Actions</th>
                     </tr>
                 </thead>
@@ -59,6 +60,7 @@
                         <td class="py-2 px-4">{{$method->patient->name}}</td>
                         <td class="py-2 px-4">{{$method->method}}</td>
                         <td class="py-2 px-4">{{$method->due_date}}</td>
+                        <td class="py-2 px-4">{{$method->reminder_date}}</td>
                         <td class="py-2 px-4">
                             <form action="{{ route('admin.contraceptive.destroy', $method->id) }}" method="POST"
                                 onsubmit="return confirm('Are you sure you want to delete this method?');">
@@ -103,6 +105,11 @@
             <div class="mb-4">
                 <label for="due_date" class="block text-gray-700 font-semibold mb-2">Due Date</label>
                 <input type="date" name="due" id="due_date" class="w-full p-3 bg-gray-200 rounded-lg">
+            </div>
+            <div class="mb-4">
+                <label for="due_date" class="block text-gray-700 font-semibold mb-2">Reminder Due Date</label>
+                <input type="datetime-local" name="reminder_datetime" id="due_datetime"
+                    class="w-full p-3 bg-gray-200 rounded-lg">
             </div>
             <button type="submit" class="bg-blue-700 text-white py-2 px-6 rounded-lg">Create</button>
             <button type="button" onclick="toggleModal(false)"

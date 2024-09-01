@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e8c3c14ff33b199b4a0838993eb8423",
+    "content-hash": "cd9e49e67b3e0e8a3fc6dff3ba5ad529",
     "packages": [
+        {
+            "name": "aimedidierm/fdisms",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aimedidierm/fdi-sms.git",
+                "reference": "f34a4a32e628293bca463630a6d536eb8710557b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aimedidierm/fdi-sms/zipball/f34a4a32e628293bca463630a6d536eb8710557b",
+                "reference": "f34a4a32e628293bca463630a6d536eb8710557b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aimedidierm\\FdiSms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "aimedidierm",
+                    "email": "aimedidiermugisha@gmail.com"
+                }
+            ],
+            "description": "This is a PHP library to help developers include SMS service with FDI SMS gateway from Rwanda.",
+            "support": {
+                "issues": "https://github.com/aimedidierm/fdi-sms/issues",
+                "source": "https://github.com/aimedidierm/fdi-sms/tree/v1.0.1"
+            },
+            "time": "2024-05-31T13:03:54+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.12.1",

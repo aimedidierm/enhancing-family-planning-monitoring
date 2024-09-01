@@ -27,7 +27,8 @@ class ContraceptiveRequest extends FormRequest
         return [
             "patient" => "required|numeric",
             "method" => ["required", "string", Rule::in(array_values((new ReflectionClass(ContraceptiveMethod::class))->getConstants()))],
-            "due" => "required|date"
+            "due" => "required|date",
+            'reminder_datetime' => 'required|date_format:Y-m-d\TH:i',
         ];
     }
 }

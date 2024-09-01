@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('method');
             $table->date('due_date');
+            $table->datetime('reminder_date');
             $table->unsignedBigInteger("patient_id");
             $table->foreign("patient_id")->on("patients")->references("id");
             $table->unsignedBigInteger("user_id");
